@@ -59,7 +59,6 @@ pokeApp.getPokemon = () => {
         //any additional parameters (ie: generation, version)
     })
 
-    })
 }
 
 
