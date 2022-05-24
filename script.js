@@ -14,7 +14,23 @@
         //Conditional statement for whether the submission is equal to the Pokemon name
 
     
+//Pseudo-code (form)
+    // find the form element on the page 
+    // add event listener 
+    // when the form is submitted 
+        // get the submission 
+        // comppare submission to answer 
+        // if correct add point to counter 
+        // if incorrect - alert - try again
 
+const formElement = document.querySelector('form');
+formElement.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const inputElement = document.querySelector('input')
+    const playerSubmission = inputElement.value;
+    console.log(playerSubmission);
+    inputElement.value= "";
+});
 
 
 
