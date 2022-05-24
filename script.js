@@ -21,7 +21,7 @@
 
 const pokeApp = {}
 
-pokeApp.endpoint = 'https://pokeapi.co/api/v2/pokemon-form/';
+pokeApp.firstEndpoint = 'https://pokeapi.co/api/v2/pokemon-form/';
 
 pokeApp.init = () => {
     pokeApp.getPokemon();
@@ -30,26 +30,45 @@ pokeApp.init = () => {
 pokeApp.getPokemon = () => {
 
     //for below variable, need to include '/number' for Pokemon #
-    const pokemonUrl = new URL(`${pokeApp.endpoint}`);
+    const pokemonFirstUrl = new URL(`${pokeApp.firstEndpoint}`);
     
-    pokemonUrl.search = new URLSearchParams({
-        limit: 100000,
+    pokemonFirstUrl.search = new URLSearchParams({
+        limit: 10000,
         //any additional parameters (ie: generation, version)
     })
 
-    fetch(pokemonUrl)
-        .then( (response) => {
-            return response.json();
-        })
+    fetch(pokemonFirstUrl)
+        .then( (response) => response.json() )
         .then( (jsonData) => {
-            pokeApp.displayImages(jsonData.results[35]);
+            pokeApp.displayImages(jsonData);
+            const randomNumber = pokeApp.randomizer(jsonData.results.length);
+            const secondEndpoint = `https://pokeapi.co/api/v2/pokemon-form/${randomNumber}`;
             
-        })
+            //Pulling API request with randomized pokemon ID
+            const pokemonSecondUrl = new URL(`${secondEndpoint}`);
+    
+            pokemonSecondUrl.search = new URLSearchParams({
+                limit: 10000,
+            })
+
+            fetch(pokemonSecondUrl)
+                .then( (secondResponse) => secondResponse.json() )
+                .then( (secondJsonData) => {
+                    
+            });
+        //any additional parameters (ie: generation, version)
+    })
+
+    })
 }
 
 
 pokeApp.displayImages = (result) => {
     console.log(result);
+}
+
+pokeApp.randomizer = (maxNum) => {
+    return Math.floor(Math.random()*maxNum);
 }
 
 pokeApp.init();
