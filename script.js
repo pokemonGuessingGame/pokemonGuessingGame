@@ -14,6 +14,15 @@
         //Conditional statement for whether the submission is equal to the Pokemon name
 
     
+//Pseudo-code (form)
+    // find the form element on the page 
+    // add event listener 
+    // when the form is submitted 
+        // get the submission 
+        // comppare submission to answer 
+        // if correct add point to counter 
+        // if incorrect - alert - try again
+
 
 
 
@@ -60,11 +69,17 @@ pokeApp.getPokemon = () => {
     })
 
 }
+        pokeApp.displayName = (result) =>{
+            console.log(result);
+            const pokeName = JSON.stringify(result)
+            console.log(pokeName);
+            
+        }
 
-
-pokeApp.displayImages = (result) => {
-    console.log(result);
-}
+        
+        pokeApp.displayImages = (result) => {
+            console.log(result);
+        }
 
 pokeApp.randomizer = (maxNum) => {
     return Math.floor(Math.random()*maxNum);
