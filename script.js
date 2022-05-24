@@ -42,7 +42,8 @@ pokeApp.getPokemon = () => {
             return response.json();
         })
         .then( (jsonData) => {
-            pokeApp.displayImages(jsonData);
+            pokeApp.displayImages(jsonData.results[35]);
+            
         })
 }
 
