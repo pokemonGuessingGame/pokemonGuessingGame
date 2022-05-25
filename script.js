@@ -33,8 +33,9 @@ const pokeApp = {}
 pokeApp.countEndpoint = 'https://pokeapi.co/api/v2/pokemon-form/';
 
 pokeApp.init = () => {
+    
     pokeApp.getCountEndpoint();
-    // pokeApp.getPokemon();
+    pokeApp.setUpEventListener();
 }
 
 pokeApp.getCountEndpoint = () => {
@@ -66,11 +67,11 @@ pokeApp.getPokemon = (pokemonId) => {
     fetch(individualPokemonUrl)
         .then(response => response.json())
         .then((jsonData) => {
-            console.log(jsonData);
+            pokeApp.correctName = jsonData.name;
+
+            // pokeApp.setUpEventListener(jsonData.name);
             pokeApp.displayName(jsonData.name);
             pokeApp.displayImages(jsonData.sprites.front_default);
-            console.log(pokeApp.displayName);
-            console.log(pokeApp.displayImages);
         });
         //any additional parameters (ie: generation, version)
 
@@ -88,6 +89,21 @@ pokeApp.displayImages = (result) => {
 
 pokeApp.randomizer = (maxNum) => {
     return Math.floor(Math.random()*maxNum);
+}
+
+pokeApp.setUpEventListener = () => {
+    const formElement = document.querySelector('form');
+    formElement.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputElement = document.querySelector('input')
+        const playerSubmission = inputElement.value;
+
+        if (playerSubmission === pokeApp.correctName) {
+            alert('Correct')
+        } else {
+            alert ('incorrect')
+        };
+    });
 }
 
 pokeApp.init();
