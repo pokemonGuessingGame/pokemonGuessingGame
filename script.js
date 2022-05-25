@@ -81,7 +81,7 @@ pokeApp.displayImages = (pokemon) => {
     console.log(pokemon);
 
     const pokeImage= document.createElement('img')
-    pokeImage.src= pokemon.url;
+    pokeImage.src= pokemon;
 
     const pokeImgContainer = document.createElement('div');
     pokeImgContainer.appendChild(pokeImage)
