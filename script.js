@@ -23,62 +23,90 @@
         // if correct add point to counter 
         // if incorrect - alert - try again
 
-        const formElement = document.querySelector('form');
-        formElement.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const inputElement = document.querySelector('input')
-            const playerSubmission = inputElement.value;
-            console.log(playerSubmission);
-            inputElement.value= "";
-            //console.log(pokeApp.displayName);
-            if (playerSubmission == pokeName) {
-                alert('Correct')
-            } else {
-                alert ('incorrect')
-            };
+const pokeApp = {}
+
+pokeApp.countEndpoint = 'https://pokeapi.co/api/v2/pokemon-form/';
+
+pokeApp.init = () => {
+    
+    pokeApp.getCountEndpoint();
+    pokeApp.setUpEventListener();
+}
+
+pokeApp.getCountEndpoint = () => {
+    const pokemonUrl = new URL(`${pokeApp.countEndpoint}`);
+
+    pokemonUrl.search = new URLSearchParams({
+        limit: 10000,
+        //any additional parameters (ie: generation, version)
+    })
+
+    fetch(pokemonUrl)
+        .then(response => response.json())
+        .then((jsonData) => {
+            pokeApp.maxCount = jsonData.count;
+            const randomNumber = pokeApp.randomizer(pokeApp.maxCount);
+            // console.log(`https://pokeapi.co/api/v2/pokemon-form/${randomNumber}`);
+            pokeApp.getPokemon(randomNumber);
         });
-        
-        
-        
-        const pokeApp = {}
-        
-        pokeApp.endpoint = 'https://pokeapi.co/api/v2/pokemon-form/';
-        
-        pokeApp.init = () => {
-            pokeApp.getPokemon();
-        }
-        
-        pokeApp.getPokemon = () => {
-            
-            //for below variable, need to include '/number' for Pokemon #
-            const pokemonUrl = new URL(`${pokeApp.endpoint}`);
-            
-            pokemonUrl.search = new URLSearchParams({
-                limit: 100000,
-                //any additional parameters (ie: generation, version)
-            })
-            
-            fetch(pokemonUrl)
-            .then( (response) => {
-                return response.json();
-            })
-            .then( (jsonData) => {
-                pokeApp.displayImages(jsonData.results[150]);
-                pokeApp.displayName(jsonData.results[150].name);
+}
 
-            })
-        }
-        
-        pokeApp.displayName = (result) =>{
-            console.log(result);
-            const pokeName = JSON.stringify(result)
-            console.log(pokeName);
-            
-        }
 
-        
-        pokeApp.displayImages = (result) => {
-            console.log(result);
-        }
+pokeApp.getPokemon = (pokemonId) => {
+    const individualPokemonUrl = new URL(`${pokeApp.countEndpoint}${pokemonId}`);
+    // individualPokemonUrl.search = new URLSearchParams({
+    //     limit: 10000,
+    // WHEN TRYING TO ADD PARAMETERS FOR THE VERSIONS,  ADD HERE
+    // })
+
+    fetch(individualPokemonUrl)
+        .then(response => response.json())
+        .then((jsonData) => {
+            pokeApp.correctName = jsonData.name;
+
+            // pokeApp.setUpEventListener(jsonData.name);
+            pokeApp.displayName(jsonData.name);
+            pokeApp.displayImages(jsonData.sprites.front_default);
+        });
+        //any additional parameters (ie: generation, version)
+
+}
+
+pokeApp.displayName = (result) =>{
+    console.log(result);
+}
+
+
+pokeApp.displayImages = (pokemon) => {
+    console.log(pokemon);
+
+    const pokeImage= document.createElement('img')
+    pokeImage.src= pokemon.url;
+
+    const pokeImgContainer = document.createElement('div');
+    pokeImgContainer.appendChild(pokeImage)
+
+    document.querySelector('#pokemonImage').appendChild(pokeImgContainer);
+}
+
+pokeApp.randomizer = (maxNum) => {
+    return Math.floor(Math.random()*maxNum);
+}
+
+pokeApp.setUpEventListener = () => {
+    const formElement = document.querySelector('form');
+    formElement.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputElement = document.querySelector('input')
+        const playerSubmission = inputElement.value;
+
+        if (playerSubmission === pokeApp.correctName) {
+            inputElement.value = "";
+            alert('Correct')
+        } else {
+            alert ('incorrect')
+        };
+    });
+}
 
 pokeApp.init();
