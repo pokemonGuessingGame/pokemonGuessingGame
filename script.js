@@ -30,56 +30,61 @@
 
 const pokeApp = {}
 
-pokeApp.firstEndpoint = 'https://pokeapi.co/api/v2/pokemon-form/';
+pokeApp.countEndpoint = 'https://pokeapi.co/api/v2/pokemon-form/';
 
 pokeApp.init = () => {
-    pokeApp.getPokemon();
+    pokeApp.getCountEndpoint();
+    // pokeApp.getPokemon();
 }
 
-pokeApp.getPokemon = () => {
+pokeApp.getCountEndpoint = () => {
+    const pokemonUrl = new URL(`${pokeApp.countEndpoint}`);
 
-    //for below variable, need to include '/number' for Pokemon #
-    const pokemonFirstUrl = new URL(`${pokeApp.firstEndpoint}`);
-    
-    pokemonFirstUrl.search = new URLSearchParams({
+    pokemonUrl.search = new URLSearchParams({
         limit: 10000,
         //any additional parameters (ie: generation, version)
     })
 
-    fetch(pokemonFirstUrl)
-        .then( (response) => response.json() )
-        .then( (jsonData) => {
-            pokeApp.displayImages(jsonData);
-            const randomNumber = pokeApp.randomizer(jsonData.results.length);
-            const secondEndpoint = `https://pokeapi.co/api/v2/pokemon-form/${randomNumber}`;
-            
-            //Pulling API request with randomized pokemon ID
-            const pokemonSecondUrl = new URL(`${secondEndpoint}`);
-    
-            pokemonSecondUrl.search = new URLSearchParams({
-                limit: 10000,
-            })
+    fetch(pokemonUrl)
+        .then(response => response.json())
+        .then((jsonData) => {
+            pokeApp.maxCount = jsonData.count;
+            const randomNumber = pokeApp.randomizer(pokeApp.maxCount);
+            // console.log(`https://pokeapi.co/api/v2/pokemon-form/${randomNumber}`);
+            pokeApp.getPokemon(randomNumber);
+        });
+}
 
-            fetch(pokemonSecondUrl)
-                .then( (secondResponse) => secondResponse.json() )
-                .then( (secondJsonData) => {
-                    
-            });
+
+pokeApp.getPokemon = (pokemonId) => {
+    const individualPokemonUrl = new URL(`${pokeApp.countEndpoint}${pokemonId}`);
+    // individualPokemonUrl.search = new URLSearchParams({
+    //     limit: 10000,
+    // WHEN TRYING TO ADD PARAMETERS FOR THE VERSIONS,  ADD HERE
+    // })
+
+    fetch(individualPokemonUrl)
+        .then(response => response.json())
+        .then((jsonData) => {
+            console.log(jsonData);
+            pokeApp.displayName(jsonData.name);
+            pokeApp.displayImages(jsonData.sprites.front_default);
+            console.log(pokeApp.displayName);
+            console.log(pokeApp.displayImages);
+        });
         //any additional parameters (ie: generation, version)
-    })
 
 }
-        pokeApp.displayName = (result) =>{
-            console.log(result);
-            const pokeName = JSON.stringify(result)
-            console.log(pokeName);
-            
-        }
 
-        
-        pokeApp.displayImages = (result) => {
-            console.log(result);
-        }
+
+pokeApp.displayName = (result) =>{
+    console.log(result);
+}
+
+
+pokeApp.displayImages = (result) => {
+    console.log(result);
+}
 
 pokeApp.randomizer = (maxNum) => {
     return Math.floor(Math.random()*maxNum);
