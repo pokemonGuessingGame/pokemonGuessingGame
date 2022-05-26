@@ -97,18 +97,23 @@ pokeApp.setUpEventListener = () => {
         const inputElement = document.querySelector('input')
         const playerSubmission = inputElement.value;
         const scoreCounter = document.querySelector('#score')
+       
         let score = 0
+        function updateScore(){
+            score++;
+            scoreCounter.innerHTML = score;
+        };
+
 
         if (playerSubmission === pokeApp.correctName) {
             inputElement.value = "";
-            score++
             pokeApp.displayImages.innerHTML= '';
             pokeApp.init();
+            updateScore();
         } else {
 
         };
         
-        scoreCounter.innerHTML = score;
         
     });
 }
