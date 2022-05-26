@@ -80,13 +80,10 @@ pokeApp.displayName = (result) =>{
 pokeApp.displayImages = (pokemon) => {
     console.log(pokemon);
 
-    const pokeImage= document.createElement('img')
+    const pokeImage= document.querySelector('img')
     pokeImage.src= pokemon;
 
-    const pokeImgContainer = document.createElement('div');
-    pokeImgContainer.appendChild(pokeImage)
-
-    document.querySelector('#pokemonImage').appendChild(pokeImgContainer);
+    document.querySelector('#pokemonImage').appendChild(pokeImage);
 }
 
 pokeApp.randomizer = (maxNum) => {
@@ -99,13 +96,20 @@ pokeApp.setUpEventListener = () => {
         e.preventDefault();
         const inputElement = document.querySelector('input')
         const playerSubmission = inputElement.value;
+        const scoreCounter = document.querySelector('#score')
+        let score = 0
 
         if (playerSubmission === pokeApp.correctName) {
             inputElement.value = "";
-            alert('Correct')
+            score++
+            pokeApp.displayImages.innerHTML= '';
+            pokeApp.init();
         } else {
-            alert ('incorrect')
+
         };
+        
+        scoreCounter.innerHTML = score;
+        
     });
 }
 
