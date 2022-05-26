@@ -31,6 +31,8 @@ pokeApp.init = () => {
     
     pokeApp.getCountEndpoint();
     pokeApp.setUpEventListener();
+    pokeApp.reset();
+    
 }
 
 pokeApp.getCountEndpoint = () => {
@@ -44,8 +46,8 @@ pokeApp.getCountEndpoint = () => {
     fetch(pokemonUrl)
         .then(response => response.json())
         .then((jsonData) => {
-            pokeApp.maxCount = jsonData.count;
-            const randomNumber = pokeApp.randomizer(pokeApp.maxCount);
+            //pokeApp.maxCount = jsonData.count;
+            const randomNumber = pokeApp.randomizer(150);
             // console.log(`https://pokeapi.co/api/v2/pokemon-form/${randomNumber}`);
             pokeApp.getPokemon(randomNumber);
         });
@@ -65,20 +67,20 @@ pokeApp.getPokemon = (pokemonId) => {
             pokeApp.correctName = jsonData.name;
 
             // pokeApp.setUpEventListener(jsonData.name);
-            pokeApp.displayName(jsonData.name);
+            //pokeApp.displayName(jsonData.name);
             pokeApp.displayImages(jsonData.sprites.front_default);
         });
         //any additional parameters (ie: generation, version)
 
 }
 
-pokeApp.displayName = (result) =>{
-    console.log(result);
-}
+//pokeApp.displayName = (result) =>{
+//     console.log(result);
+// }
 
 
 pokeApp.displayImages = (pokemon) => {
-    console.log(pokemon);
+    //console.log(pokemon);
 
     const pokeImage= document.querySelector('img')
     pokeImage.src= pokemon;
@@ -87,7 +89,7 @@ pokeApp.displayImages = (pokemon) => {
 }
 
 pokeApp.randomizer = (maxNum) => {
-    return Math.floor(Math.random()*maxNum);
+    return Math.floor(Math.random()*maxNum+1);
 }
 
 pokeApp.setUpEventListener = () => {
@@ -96,26 +98,37 @@ pokeApp.setUpEventListener = () => {
         e.preventDefault();
         const inputElement = document.querySelector('input')
         const playerSubmission = inputElement.value;
-        const scoreCounter = document.querySelector('#score')
-       
-        let score = 0
-        function updateScore(){
-            score++;
-            scoreCounter.innerHTML = score;
-        };
-
-
+        
         if (playerSubmission === pokeApp.correctName) {
             inputElement.value = "";
             pokeApp.displayImages.innerHTML= '';
-            pokeApp.init();
+            pokeApp.correctName= "";
+            pokeApp.getCountEndpoint();
             updateScore();
         } else {
-
+            alert ("Try Again")
         };
         
         
     });
 }
+
+    let score = 0
+    const scoreCounter = document.querySelector('#score')
+    function updateScore(){
+        score++;
+        scoreCounter.innerHTML = score;
+    };
+
+pokeApp.reset = () => {
+    const resetElement= document.querySelector('#reset')
+    resetElement.addEventListener('click', () => {
+        const inputElement = document.querySelector('input')
+        inputElement.value = "";
+        pokeApp.displayImages.innerHTML= '';
+        pokeApp.correctName= "";
+        pokeApp.getCountEndpoint();
+    });
+};
 
 pokeApp.init();
