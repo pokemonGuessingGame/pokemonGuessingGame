@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -221,23 +222,21 @@ template {
   overflow: hidden;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+html {
+  font-size: 125%;
 }
 
-a {
-  display: inline-block;
+p {
+  font-family: "Press Start 2P", cursive;
+  font-size: 3.5rem;
 }
 
-.wrapper {
-  max-width: 1260px;
-  width: 70%;
-  margin: 0 auto;
+button {
+  font-family: "Press Start 2P", cursive;
 }
 
-h1 {
-  font-family: "Playfair Display", serif;
+footer {
+  font-family: "Press Start 2P", cursive;
 }
 
 body {
@@ -250,5 +249,20 @@ body {
 }
 
 .titleImageContainer img {
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  display: inline-block;
+}
+
+.wrapper {
+  max-width: 1260px;
+  width: 70%;
   margin: 0 auto;
 }
