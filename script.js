@@ -82,10 +82,10 @@ pokeApp.getPokemon = (pokemonId) => {
 pokeApp.displayImages = (pokemon) => {
     //console.log(pokemon);
 
-    const pokeImage= document.querySelector('img')
+    const pokeImage= document.querySelector('#randomPokeImage')
     pokeImage.src= pokemon;
 
-    document.querySelector('#pokemonImage').appendChild(pokeImage);
+    document.querySelector('#pokemonImageDiv').appendChild(pokeImage);
 }
 
 pokeApp.randomizer = (maxNum) => {
