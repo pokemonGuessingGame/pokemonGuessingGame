@@ -257,6 +257,11 @@ img {
   display: block;
 }
 
+section.counter div.scoreCountContainer img.pokeBallGif {
+  max-width: 4%;
+  display: block;
+}
+
 a {
   display: inline-block;
 }
