@@ -1,3 +1,16 @@
-h1 {
-    font-family: 'Playfair Display', serif;
+html {
+    font-size: 125%;
+}
+
+p {
+    font-family: $mainFont;
+    font-size: 3.5rem;
+}
+
+button {
+    font-family: $mainFont;
+}
+
+footer {
+    font-family: $mainFont;
 }
