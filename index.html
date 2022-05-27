@@ -22,7 +22,9 @@
     </header>
 
     <main>
-        <div class="wrapper" id="pokemonImageDiv"><img id="randomPokeImage" src=""></div>
+        <div class="wrapper" id="pokemonImageDiv">
+            <img id="randomPokeImage" src="">
+        </div>
 
         <button id="reset">IDK</button>
         <form>
@@ -30,14 +32,18 @@
             <button>Submit</button>
         </form>
 
-        <p class="counter">
-            <img src="./assets/pokeball bit.png" alt="pixelated pokeball">
-            <img src="./assets/Score.png" alt="score image">
-            <span id="score">0</span>
-        </p>
+        <section class="counter">
+            <div class="scoreCountContainer">
+                <img src="./assets/pokeball bit.png" alt="pixelated pokeball">
+                <img src="./assets/Score.png" alt="score image">
+                <p>
+                    <span id="score">0</span>
+                </p>
+            </div>
+        </section>
     </main>
 
-    <footer>Made by Colin Ho & Hanson Wong @ Juno College 2022 </footer>
+    <footer class="wrapper">Made by Colin Ho & Hanson Wong @ Juno College 2022 </footer>
 
     <script src="script.js"></script>
 </body>
