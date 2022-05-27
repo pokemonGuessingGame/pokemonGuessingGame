@@ -14,7 +14,7 @@
 
 <body>
 
-    <header>
+    <header class="wrapper">
         <h1 class="titleImageContainer">
             <img id="headerImage" src="./assets/Guess That Pokemon Heading.png" alt="Guess that pokemon title image">
         </h1>
@@ -22,25 +22,31 @@
     </header>
 
     <main>
-        <div class="wrapper" id="pokemonImageDiv">
-            <img id="randomPokeImage" src="">
+        <div class="wrapper">
+            <section class="guesser">
+                <div class="pokemonImage" id="pokemonImageDiv">
+                    <img id="randomPokeImage" src="">
+                </div>
+        
+                <div class="guessSubmission">
+                    <form>
+                        <input type="text" id="playerGuess" placeholder="Guess that Pokemon!">
+                        <button>Submit</button>
+                    </form>
+                    <button id="reset">IDK</button>
+                </div>
+            </section>
+    
+            <section class="counter">
+                <div class="scoreCountContainer">
+                    <!-- <img src="./assets/pokeball bit.gif" alt="pixelated pokeball"> -->
+                    <img src="./assets/Score.png" alt="score image">
+                    <p>
+                        <span id="score">0</span>
+                    </p>
+                </div>
+            </section>
         </div>
-
-        <button id="reset">IDK</button>
-        <form>
-            <input type="text" id="playerGuess" placeholder="Guess that Pokemon!">
-            <button>Submit</button>
-        </form>
-
-        <section class="counter">
-            <div class="scoreCountContainer">
-                <img  class="pokeBallGif" src="./assets/pokeball bit.gif" alt="pixelated pokeball" loading="lazy">
-                <img src="./assets/Score.png" alt="score image">
-                <p>
-                    <span id="score">0</span>
-                </p>
-            </div>
-        </section>
     </main>
 
     <footer class="wrapper">Made by Colin Ho & Hanson Wong @ Juno College 2022 </footer>
