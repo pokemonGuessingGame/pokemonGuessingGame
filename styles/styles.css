@@ -228,7 +228,7 @@ html {
 
 p {
   font-family: "Press Start 2P", cursive;
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 button {
@@ -239,12 +239,12 @@ footer {
   font-family: "Press Start 2P", cursive;
 }
 
-body {
+main {
   background-image: url(../assets/pokemonBackground.webp);
   min-width: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   min-height: 100vh;
 }
 
@@ -257,9 +257,21 @@ img {
   display: block;
 }
 
+section.counter div.scoreCountContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
 section.counter div.scoreCountContainer img.pokeBallGif {
-  max-width: 4%;
+  height: 3rem;
   display: block;
+}
+section.counter div.scoreCountContainer img.scoreImage {
+  height: 3rem;
 }
 
 a {
