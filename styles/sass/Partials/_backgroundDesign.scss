@@ -1,8 +1,8 @@
-body {
+main {
     background-image: url(../assets/pokemonBackground.webp);
     min-width: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     min-height: 100vh;
 }

@@ -2,7 +2,24 @@ img {
     max-width: 100%;
     display: block;
 }
+section.counter{
+    div.scoreCountContainer{
+        display: flex;
+        flex-direction: row;
+        img.pokeBallGif{
+            height: 3rem;
+            display: block;
+        }
+        img.scoreImage{
+            height: 3rem;
+        }
+        p {
+            margin: 5px 10px;
+        }
+    }
+}
 
+g
 a {
     display: inline-block;
 }
