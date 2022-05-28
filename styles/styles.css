@@ -273,6 +273,9 @@ section.counter div.scoreCountContainer img.pokeBallGif {
 section.counter div.scoreCountContainer img.scoreImage {
   height: 3rem;
 }
+section.counter div.scoreCountContainer p {
+  margin: 5px 10px;
+}
 
 a {
   display: inline-block;
