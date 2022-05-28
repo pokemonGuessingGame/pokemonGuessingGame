@@ -330,9 +330,7 @@ g a {
   padding-bottom: 3rem;
 }
 .guesser form button {
-  width: 55%;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  width: 50%;
 }
 
 .pokemonImage .randomPokeImage {
@@ -341,13 +339,16 @@ g a {
 
 .guessSubmission {
   width: 100%;
-  position: relative;
 }
-.guessSubmission input, .guessSubmission .submissionButton {
-  padding: 1rem 2rem;
-}
+.guessSubmission input,
+.guessSubmission .submissionButton,
 .guessSubmission .resetButton {
-  padding: 1rem 4rem;
-  position: absolute;
-  bottom: 3rem;
+  padding: 1rem 1rem;
+}
+
+.guessButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
 }

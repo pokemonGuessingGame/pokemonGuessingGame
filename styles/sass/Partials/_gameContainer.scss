@@ -19,8 +19,8 @@
         gap: 2rem;
         padding-bottom: 3rem;
         button {
-            width: 55%;
-            align-self: flex-end;
+            width: 50%;
+            // align-self: flex-end;
         }
     }
 }
@@ -33,13 +33,14 @@
 
 .guessSubmission {
     width: 100%;
-    position: relative;
-    input, .submissionButton {
-        padding: 1rem 2rem;
-    }
+    input, 
+    .submissionButton, 
     .resetButton {
-        padding: 1rem 4rem;
-        position: absolute;
-        bottom: 3rem;
+        padding: 1rem 1rem;
     }
+}
+
+.guessButtons {
+    display: flex;
+    gap: 2rem;
 }

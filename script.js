@@ -93,8 +93,8 @@ pokeApp.randomizer = (maxNum) => {
 }
 
 pokeApp.setUpEventListener = () => {
-    const formElement = document.querySelector('form');
-    formElement.addEventListener('submit', (e) => {
+    const submitElement = document.querySelector('#submit');
+    submitElement.addEventListener('click', (e) => {
         e.preventDefault();
         const inputElement = document.querySelector('input')
         const playerSubmission = inputElement.value;
