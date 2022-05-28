@@ -23,29 +23,31 @@
 
     <main>
         <div class="wrapper">
-            <section class="guesser">
-                <div class="pokemonImage" id="pokemonImageDiv">
-                    <img id="randomPokeImage" src="">
-                </div>
+            <div class="gameContainer">
+                <section class="guesser">
+                    <div class="pokemonImage" id="pokemonImageDiv">
+                        <img id="randomPokeImage" class ="randomPokeImage" src="">
+                    </div>
+            
+                    <div class="guessSubmission">
+                        <form>
+                            <input type="text" id="playerGuess" placeholder="Guess that Pokemon!">
+                            <button class="submissionButton">Submit</button>
+                        </form>
+                        <button id="reset" class="resetButton">IDK</button>
+                    </div>
+                </section>
         
-                <div class="guessSubmission">
-                    <form>
-                        <input type="text" id="playerGuess" placeholder="Guess that Pokemon!">
-                        <button>Submit</button>
-                    </form>
-                    <button id="reset">IDK</button>
-                </div>
-            </section>
-    
-            <section class="counter">
-                <div class="scoreCountContainer">
-                    <!-- <img src="./assets/pokeball bit.gif" alt="pixelated pokeball"> -->
-                    <img src="./assets/Score.png" alt="score image">
-                    <p>
-                        <span id="score">0</span>
-                    </p>
-                </div>
-            </section>
+                <section class="counter">
+                    <div class="scoreCountContainer">
+                        <!-- <img src="./assets/pokeball bit.gif" alt="pixelated pokeball"> -->
+                        <img src="./assets/Score.png" alt="score image">
+                        <p>
+                            <span id="score">0</span>
+                        </p>
+                    </div>
+                </section>
+            </div>
         </div>
     </main>
 
