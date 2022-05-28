@@ -23,10 +23,20 @@
 
     <main>
         <div class="wrapper">
-            <section class="guesser">
-                <div class="pokemonImage" id="pokemonImageDiv">
-                    <img id="randomPokeImage" src="">
-                </div>
+            <div class="gameContainer">
+                <section class="guesser">
+                    <div class="pokemonImage" id="pokemonImageDiv">
+                        <img id="randomPokeImage" class ="randomPokeImage" src="">
+                    </div>
+            
+                    <div class="guessSubmission">
+                        <form>
+                            <input type="text" id="playerGuess" placeholder="Guess that Pokemon!">
+                            <button class="submissionButton">Submit</button>
+                        </form>
+                        <button id="reset" class="resetButton">IDK</button>
+                    </div>
+                </section>
         
                 <div class="guessSubmission">
                     <form>
