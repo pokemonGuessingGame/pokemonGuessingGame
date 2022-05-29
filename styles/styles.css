@@ -265,6 +265,7 @@ section.counter div.scoreCountContainer {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  gap: 2rem;
 }
 section.counter div.scoreCountContainer img.pokeBallGif {
   height: 3rem;
@@ -340,10 +341,33 @@ g a {
 .guessSubmission {
   width: 100%;
 }
-.guessSubmission input,
+.guessSubmission input {
+  padding: 1rem 1rem;
+  border: 2px solid black;
+}
 .guessSubmission .submissionButton,
 .guessSubmission .resetButton {
   padding: 1rem 1rem;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.guessSubmission .submissionButton {
+  background-color: #bde0fe;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.guessSubmission .submissionButton:hover,
+.guessSubmission .submissionButton :focus {
+  background-color: #a2d2ff;
+}
+.guessSubmission .resetButton {
+  background-color: #ffc8dd;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.guessSubmission .resetButton:hover,
+.guessSubmission .resetButton :focus {
+  background-color: #ffafcc;
 }
 
 .guessButtons {

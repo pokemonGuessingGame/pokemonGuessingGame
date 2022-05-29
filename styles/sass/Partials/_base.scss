@@ -6,6 +6,7 @@ section.counter{
     div.scoreCountContainer{
         display: flex;
         flex-direction: row;
+        gap: 2rem;
         img.pokeBallGif{
             height: 3rem;
             display: block;

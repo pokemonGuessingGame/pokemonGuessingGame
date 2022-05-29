@@ -33,10 +33,34 @@
 
 .guessSubmission {
     width: 100%;
-    input, 
-    .submissionButton, 
+    input {
+        padding: 1rem 1rem;
+        border: 2px solid black;
+    }
+
+    .submissionButton,
     .resetButton {
         padding: 1rem 1rem;
+        border: 2px solid black;
+        cursor: pointer;
+    }
+    
+    .submissionButton {
+        background-color: #bde0fe;
+        transition: 0.3s;
+        &:hover,
+        :focus {
+            background-color: #a2d2ff;
+        }
+    }
+
+    .resetButton {
+        background-color: #ffc8dd;
+        transition: 0.3s;
+        &:hover,
+        :focus {
+            background-color: #ffafcc;
+        }
     }
 }
 
