@@ -1,7 +1,6 @@
 
 @media (max-width:1200px) {
     body {
-        // background-color: rgba(221,24,21,255);
         background-image: url(../assets/pokemonBackgroundLite.png);
         min-width: 100%;
         background-position: center;
@@ -23,8 +22,6 @@
         padding-top: 5rem;
     }
 
-    
-
     .footerSection {
         padding-top: 10rem;
     }
@@ -36,14 +33,6 @@
     }
 } 
 
-
-
-// @media (max-width:950px) {
-//     //Game Container Queries
-    
-
-
-// }
 
 @media (max-width:580px) {
     section.counter {
@@ -64,8 +53,6 @@
     .wrapper {
         width: 85%;
     }
-
-    
 }
 
 @media (max-width:400px) {
@@ -75,6 +62,7 @@
             img.scoreImage {
                 height: 1.5rem;
             }
+            
             p {
                 font-size: 1.5rem;
                 .score {
@@ -83,7 +71,4 @@
             }
         }
     }
-    
-
-    
 }

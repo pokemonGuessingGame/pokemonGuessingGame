@@ -1,4 +1,7 @@
-// PSEUDO-CODE (JS):
+// PSEUDO-CODE (JS): 
+
+//*****UNSURE AS TO WHETEHR OR NOT TO INCLUDE AS PART OF FINAL DELIVERABLE****
+
     // Landing page with a button with text "Test your Knowledge" with title "Pokemon Guessing Game"
 
     // Get information from PokeApi
@@ -46,9 +49,8 @@ pokeApp.getCountEndpoint = () => {
     fetch(pokemonUrl)
         .then(response => response.json())
         .then((jsonData) => {
-            //pokeApp.maxCount = jsonData.count;
+            //150 is the number of pokemons in the first generation
             const randomNumber = pokeApp.randomizer(150);
-            // console.log(`https://pokeapi.co/api/v2/pokemon-form/${randomNumber}`);
             pokeApp.getPokemon(randomNumber);
         });
 }
@@ -56,35 +58,20 @@ pokeApp.getCountEndpoint = () => {
 
 pokeApp.getPokemon = (pokemonId) => {
     const individualPokemonUrl = new URL(`${pokeApp.countEndpoint}${pokemonId}`);
-    // individualPokemonUrl.search = new URLSearchParams({
-    //     limit: 10000,
-    // WHEN TRYING TO ADD PARAMETERS FOR THE VERSIONS,  ADD HERE
-    // })
+    // WHEN TRYING TO ADD PARAMETERS FOR THE VERSIONS IN THE FUTURE,  EXPAND HERE
 
     fetch(individualPokemonUrl)
         .then(response => response.json())
         .then((jsonData) => {
             pokeApp.correctName = jsonData.name;
-
-            // pokeApp.setUpEventListener(jsonData.name);
-            //pokeApp.displayName(jsonData.name);
             pokeApp.displayImages(jsonData.sprites.front_default);
         });
-        //any additional parameters (ie: generation, version)
-
 }
-
-//pokeApp.displayName = (result) =>{
-//     console.log(result);
-// }
 
 
 pokeApp.displayImages = (pokemon) => {
-    //console.log(pokemon);
-
     const pokeImage= document.querySelector('#randomPokeImage')
     pokeImage.src= pokemon;
-
     document.querySelector('#pokemonImageDiv').appendChild(pokeImage);
 }
 
@@ -104,21 +91,19 @@ pokeApp.setUpEventListener = () => {
             pokeApp.displayImages.innerHTML= '';
             pokeApp.correctName= "";
             pokeApp.getCountEndpoint();
-            updateScore();
+            pokeApp.updateScore();
         } else {
             alert ("Try Again");
         };
-        
-        
     });
 }
 
-    let score = 0
-    const scoreCounter = document.querySelector('#score')
-    function updateScore(){
-        score++;
-        scoreCounter.innerHTML = score;
-    };
+pokeApp.score = 0
+pokeApp.scoreCounter = document.querySelector('#score')
+pokeApp.updateScore = function (){
+    pokeApp.score++;
+    pokeApp.scoreCounter.innerHTML = pokeApp.score;
+};
 
 pokeApp.reset = () => {
     const resetElement= document.querySelector('#reset')

@@ -257,28 +257,7 @@ img {
   display: block;
 }
 
-section.counter div.scoreCountContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  gap: 2rem;
-}
-section.counter div.scoreCountContainer img.pokeBallGif {
-  height: 3rem;
-  display: block;
-}
-section.counter div.scoreCountContainer img.scoreImage {
-  height: 3rem;
-}
-section.counter div.scoreCountContainer p {
-  margin: 5px 10px;
-}
-
-g a {
+a {
   display: inline-block;
 }
 
