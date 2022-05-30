@@ -122,7 +122,8 @@ pokeApp.setUpEventListener = () => {
 
 pokeApp.reset = () => {
     const resetElement= document.querySelector('#reset')
-    resetElement.addEventListener('click', () => {
+    resetElement.addEventListener('click', (e) => {
+        e.preventDefault();
         const inputElement = document.querySelector('input')
         inputElement.value = "";
         pokeApp.displayImages.innerHTML= '';
