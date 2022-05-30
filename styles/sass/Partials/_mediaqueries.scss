@@ -1,0 +1,89 @@
+
+@media (max-width:1200px) {
+    body {
+        // background-color: rgba(221,24,21,255);
+        background-image: url(../assets/pokemonBackgroundLite.png);
+        min-width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+    }
+
+    .guessButtons {
+        flex-direction: column;
+        .resetButton,
+        .submissionButton {
+            width: 100%;
+        }
+    }
+
+    .gameContainer {
+        width: 100%;
+        padding-top: 5rem;
+    }
+
+    
+
+    .footerSection {
+        padding-top: 10rem;
+    }
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1024px) {
+    h1 {
+        font-size: 5rem;
+    }
+} 
+
+
+
+// @media (max-width:950px) {
+//     //Game Container Queries
+    
+
+
+// }
+
+@media (max-width:580px) {
+    section.counter {
+        div.scoreCountContainer {
+            img.pokeBallGif,
+            img.scoreImage {
+                height: 2rem;
+            }
+            p {
+                font-size: 2rem;
+                .score {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    
+    .wrapper {
+        width: 85%;
+    }
+
+    
+}
+
+@media (max-width:400px) {
+    section.counter {
+        div.scoreCountContainer {
+            img.pokeBallGif,
+            img.scoreImage {
+                height: 1.5rem;
+            }
+            p {
+                font-size: 1.5rem;
+                .score {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+    
+
+    
+}
