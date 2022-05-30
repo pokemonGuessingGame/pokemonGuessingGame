@@ -335,6 +335,10 @@ g a {
   width: 50%;
 }
 
+.pokemonImage {
+  height: 10rem;
+  width: 10rem;
+}
 .pokemonImage .randomPokeImage {
   width: 10rem;
 }
@@ -401,4 +405,6 @@ section.counter div.scoreCountContainer p {
 
 .footerSection {
   padding-top: 28rem;
+  text-align: center;
+  width: 100%;
 }

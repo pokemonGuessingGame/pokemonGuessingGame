@@ -94,8 +94,8 @@ pokeApp.randomizer = (maxNum) => {
 
 pokeApp.setUpEventListener = () => {
     const submitElement = document.querySelector('#submit');
-    submitElement.addEventListener('click', (e) => {
-        e.preventDefault();
+    submitElement.addEventListener('click', (event) => {
+        event.preventDefault();
         const inputElement = document.querySelector('input')
         const playerSubmission = inputElement.value;
         
@@ -106,7 +106,7 @@ pokeApp.setUpEventListener = () => {
             pokeApp.getCountEndpoint();
             updateScore();
         } else {
-            alert ("Try Again")
+            alert ("Try Again");
         };
         
         
@@ -122,8 +122,8 @@ pokeApp.setUpEventListener = () => {
 
 pokeApp.reset = () => {
     const resetElement= document.querySelector('#reset')
-    resetElement.addEventListener('click', (e) => {
-        e.preventDefault();
+    resetElement.addEventListener('click', (event) => {
+        event.preventDefault();
         const inputElement = document.querySelector('input')
         inputElement.value = "";
         pokeApp.displayImages.innerHTML= '';
